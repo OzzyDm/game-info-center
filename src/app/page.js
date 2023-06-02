@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Results from "./components/Results";
 
 export default function Home() {
   const [games, setGames] = useState([]);
@@ -12,7 +13,6 @@ export default function Home() {
       );
       const newData = await response.json();
       setGames(newData.results);
-      console.log(newData);
     };
 
     fetchData();
@@ -20,9 +20,7 @@ export default function Home() {
 
   return (
     <div>
-      {games.map((game) => (
-        <h1 key={game.id}>{game.name}</h1>
-      ))}
+      <Results games={games} />
     </div>
   );
 }
