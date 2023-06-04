@@ -1,16 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 function Search() {
   const [search, setSearch] = useState("");
-  const router = useRouter();
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!search) return;
-    router.push(`/games/${search}`);
     setSearch("");
   }
 
