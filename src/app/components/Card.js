@@ -1,22 +1,28 @@
 import Image from "next/image";
-import Link from "next/link";
 
 function Card(props) {
-  console.log(props);
+  const platforms = props.game.platforms.map((plat) => (
+    <p className="text-sm">{plat.platform.name}</p>
+  ));
+
+  const genres = props.game.genres.map((gen) => (
+    <p className="text-sm">{gen.name}</p>
+  ));
+
   return (
-    <div>
-      <Image
+    <div className="border-stone-500 m-5 p-4">
+      <img
+        className="object-scale-down"
         src={props.game.background_image}
-        width={500}
-        height={300}
+        width={300}
+        height={400}
         alt="image is not available"
-      ></Image>
-      <h1>{props.game.name}</h1>
-      <p>
-        {props.game.platforms.map((plat) => (
-          <p>{plat.platform.name}</p>
-        ))}
-      </p>
+      ></img>
+      <h1 className="font-bold">{props.game.name}</h1>
+      <p>Platforms:{platforms}</p>
+      <p>Genre(s): {genres}</p>
+      <p>Metacitric: {props.game.metacritic}</p>
+      <a href="#">Learn More</a>
     </div>
   );
 }
