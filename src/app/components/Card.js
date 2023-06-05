@@ -11,13 +11,13 @@ function Card(props) {
 
   return (
     <div className="border-stone-500 m-5 p-4">
-      <img
+      <Image
         className="object-scale-down"
         src={props.game.background_image}
         width={300}
         height={400}
         alt="image is not available"
-      ></img>
+      ></Image>
       <h1 className="font-bold">{props.game.name}</h1>
       <p>Platforms:{platforms}</p>
       <p>Genre(s): {genres}</p>
